@@ -11,6 +11,7 @@ public class BallLauncher : MonoBehaviour
     private BlockSpawner blockSpawner;
     private float timer;
     public static Boolean released;
+    public static Boolean allBallsReturned;
 
     private List<Ball> balls = new List<Ball>();
     private int noOfBalls;
@@ -21,6 +22,7 @@ public class BallLauncher : MonoBehaviour
     private void Awake()
     {
         released = false;
+        allBallsReturned = true;
         launchPreview = GetComponent<Launcher>();
         blockSpawner = FindObjectOfType<BlockSpawner>();
         CreateBall();
@@ -31,6 +33,7 @@ public class BallLauncher : MonoBehaviour
         noOfBalls++;
         if (noOfBalls == balls.Count)
         {
+            allBallsReturned = true;
             blockSpawner.SpawnRowOfBlocks();
             blockSpawner.SpawnRowOfBlocks();
             CreateBall();
@@ -58,6 +61,8 @@ public class BallLauncher : MonoBehaviour
            foreach(var ball in balls){
                 ball.gameObject.SetActive(false);
             }
+            allBallsReturned = true;
+            released = false;
             timer = 0;
         }
 
@@ -73,6 +78,7 @@ public class BallLauncher : MonoBehaviour
         }else if (Input.GetMouseButtonUp(0))
         {
             released = true;
+            allBallsReturned = false;
             EndDrag(worldPosition);
             timer = 0;
         }

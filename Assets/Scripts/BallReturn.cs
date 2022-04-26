@@ -9,6 +9,6 @@ public class BallReturn : MonoBehaviour
     {        
         FindObjectOfType<BallLauncher>().ReturnBall();
         collision.collider.gameObject.SetActive(false);
-        if (BallLauncher.released) BallLauncher.released = false;
+        if (BallLauncher.allBallsReturned) BallLauncher.released = false;
     }
 }
