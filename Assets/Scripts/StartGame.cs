@@ -9,7 +9,7 @@ public class StartGame : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Initiate.Fade("SampleScene", Color.black, 5.0f);
+            Initiate.Fade("Game", Color.black, 5.0f);
         }
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
+
 public static class Initiate
 {
     static bool areWeFading = false;

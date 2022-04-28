@@ -1,15 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Launcher : MonoBehaviour
+public class LaunchPreview : MonoBehaviour
 {
-    private LineRenderer lineRenderer;
+    [SerializeField] private LineRenderer lineRenderer;
+
     private Vector3 dragStartPoint;
 
     private void Awake()
     {
-        lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.enabled = false;
     }
 
@@ -21,14 +19,13 @@ public class Launcher : MonoBehaviour
             lineRenderer.enabled = false;
     }
 
-    public void setStartPoint(Vector3 worldPosition)
+    public void SetStartPoint(Vector3 worldPosition)
     {
-        
         dragStartPoint = worldPosition;
         lineRenderer.SetPosition(0, dragStartPoint);
     }
 
-    public void setEndPoint(Vector3 worldPosition)
+    public void SetEndPoint(Vector3 worldPosition)
     {
         Vector3 offset = worldPosition - dragStartPoint;
         //Debug.Log(offset.x + " " + offset.y);
@@ -37,5 +34,4 @@ public class Launcher : MonoBehaviour
 
         lineRenderer.SetPosition(1, dragEndPoint); 
     }
-
 }

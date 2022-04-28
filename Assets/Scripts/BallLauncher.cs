@@ -1,30 +1,32 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BallLauncher : MonoBehaviour
 {
-
-    private Vector3 startPosition, endPosition;
-    private Launcher launchPreview;
-    private BlockSpawner blockSpawner;
-    private float timer;
-    public static Boolean released;
-    public static Boolean allBallsReturned;
+    public static bool released;
+    public static bool allBallsReturned;
 
     private List<Ball> balls = new List<Ball>();
+
+    private Vector3 startPosition, endPosition;
+
+    private float timer;
+
     private int noOfBalls;
 
-    [SerializeField]
-    private Ball ballPrefab;
+    [Header("Views")]
+    [SerializeField] private LaunchPreview launchPreview;
+    [SerializeField] private BlockSpawner blockSpawner;
+
+    [Header("Prefabs")]
+    [SerializeField] private Ball ballPrefab;
+
 
     private void Awake()
     {
         released = false;
         allBallsReturned = true;
-        launchPreview = GetComponent<Launcher>();
-        blockSpawner = FindObjectOfType<BlockSpawner>();
         CreateBall();
     }
 
@@ -49,7 +51,7 @@ public class BallLauncher : MonoBehaviour
         noOfBalls++;
     }
 
-    void Update()
+    private void Update()
     {
         if (released)
         {
@@ -112,13 +114,13 @@ public class BallLauncher : MonoBehaviour
         endPosition = worldPosition;
         Vector3 direction = endPosition - startPosition;
         
-        launchPreview.setEndPoint(transform.position - direction);
+        launchPreview.SetEndPoint(transform.position - direction);
     }
 
     private void StartDrag(Vector3 worldPosition)
     {
         startPosition = worldPosition;
-        launchPreview.setStartPoint(transform.position);
+        launchPreview.SetStartPoint(transform.position);
     }
 }
  
