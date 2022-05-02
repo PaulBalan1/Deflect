@@ -27,7 +27,12 @@ public class GameManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (score > highscore) highscore = score;
+        if (score > highscore)
+        {
+            highscore = score;
+            PlayerPrefs.SetInt("highscore", score);
+        }
+
         BlockSpawner.OnGameLost -= FadeToBlack;
         Overlay.OnFadeInFinished -= GoToMenu;
     }

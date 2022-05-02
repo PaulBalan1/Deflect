@@ -33,7 +33,7 @@ public class Menu : MonoBehaviour
         startGameButton.onClick.AddListener(StartFadeToGame);
         muteToggle.onValueChanged.AddListener(MuteGame);
 
-        highscoreText.SetText("Highscore: " + GameManager.highscore.ToString());
+        highscoreText.SetText("Highscore: " + PlayerPrefs.GetInt("highscore").ToString());
 
         Overlay.OnFadeInFinished += StartGame;
 
