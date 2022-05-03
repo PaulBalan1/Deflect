@@ -4,6 +4,8 @@ Inspired by a game similar to Ballz by Ketchapp that I forgot what is called sin
 
 WebGL Build: https://paulbalan1.github.io/Deflect/
 
+YouTube video presentation: https://youtu.be/dHoBIkRBKtg
+
 Sources:
 - https://www.youtube.com/watch?v=vzGuadCj9FA - Tutorial for some game techniques, specifically having to do with ball-launching trajectory and line rendering.
 - https://docs.unity3d.com/ScriptReference/Gradient.html - Piece of code used to create block outline colored gradient, but modified.
